@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+  <div class="container-fluid d-flex justify-content-center">
+    <div class="input-group w-75">
+      <input
+        #search_input
+        [(ngModel)]="search"
+        (ngModelChange)="inputHandler()"
+        type="text"
+        class="form-control border-none"
+        placeholder="Recipient's username"
+        aria-label="Recipient's username with two button addons"
+      />
+      <button
+        class="btn btn-danger"
+        type="button"
+        (click)="clear(search_input)"
+        (ngModelChange)="inputHandler()"
+      >
+        Clear
+      </button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,48 @@
+<app-search (searchOutput)="getSearchOutput($event)"></app-search>
+<div class="container d-flex justify-content-evenly my-4">
+  <div class="col-lg-2 col-md-8 row-sm">
+    <div class="card text-center">
+      <div class="card-header fw-bolder">Categories</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <a href="" class="text-decoration-none fw-bold">All</a>
+        </li>
+        <li class="list-group-item">
+          <a href="" class="text-decoration-none fw-bold">Aa:Ee</a>
+        </li>
+        <li class="list-group-item">
+          <a href="" class="text-decoration-none fw-bold">Ff:Ll</a>
+        </li>
+        <li class="list-group-item">
+          <a href="" class="text-decoration-none fw-bold">Mm:Rr</a>
+        </li>
+        <li class="list-group-item">
+          <a href="" class="text-decoration-none fw-bold">Ss:Zz</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-10 col-md-10 col-sm">
+    <div class="row d-flex justify-content-evenly">
+      <div *ngIf="afterSearchDrugs.length > 0; then drugs; else noDrugs"></div>
+      <ng-template #drugs>
+        <app-element
+          *ngFor="let item of afterSearchDrugs"
+          [item]="item"
+          class="col-sm-10 col-lg-5"
+        ></app-element>
+        <button class="btn btn-primary" (click)="showMore()">Show More</button>
+      </ng-template>
+      <ng-template #noDrugs>
+        <div class="card col-4 p-0 mb-4" *ngIf="afterSearchDrugs.length == 0">
+          <img
+            src="https://cdn.dribbble.com/users/1231865/screenshots/11157048/media/bc9427646c632ded563ee076fdc5dfda.jpg?compress=1&resize=400x300"
+            class="card-img-top"
+            alt="..."
+          />
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div></div>
+</div>
